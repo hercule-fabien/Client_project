@@ -1,4 +1,4 @@
-#progress-circle {
+.progress-circle {
     background: radial-gradient(white 50%, transparent 51%),
       conic-gradient(transparent 0deg 220deg, gainsboro 220deg 360deg),
       conic-gradient(#ee8498 0deg, #f7cf79 90deg, #acecf7 180deg, #586a6a);
@@ -14,6 +14,3 @@
     align-items: center;
   }
 
-#progress-count {
- transition: none;
-}

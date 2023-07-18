@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const renderTemplate = require('../lib/renderTemplate');
-const { Progress, User } = require('../../db/models');
+const {
+  Progress, User, Card, Category,
+} = require('../../db/models');
 const Account = require('../views/Account');
 
 router.get('/', (req, res) => {
@@ -15,18 +17,61 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const { login } = req.session;
-    console.log(login, 'login====');
     const user = await User.findOne({ where: { name: login } });
-    console.log(user, '====user');
-    const results = await Progress.findAll({ where: { userId: user.id } });
-    const isLearned = results.filter((el) => el.isLearned === true);
-    //   console.log(isLearned.length);
-    const progress = ((isLearned.length / results.length) * 100).toFixed(2); // 66.67%
-    //   console.log(progress);
-    res.json({ progress });
+    const results = await Progress.findAll({
+      where: {
+        userId: user.id,
+      },
+      include: [
+        {
+          model: Card,
+          include: [Category],
+        },
+      ],
+      raw: true,
+    });
+    // console.log(results, '==== results');
+
+    // const isLearned = results.filter((el) => el.isLearned === true);
+    // const categoryOne = results.filter((el) => el['Card.categoryId'] === 1);
+    // const categoryOne = results.filter((el) => el['Card.categoryId'] === 2);
+    // const isLearnedOne = categoryOne.filter((el) => el.isLearned === true);
+    //   console.log(isLearned);
+    // const progress = ((isLearnedOne.length / 3) * 100).toFixed(2); // 66.67%
+    // const result = [];
+    //  result.push(progress);
+    //  console.log(result);
+
+    const categoryIds = [...new Set(results.map((result) => result['Card.Category.id']))];
+    // const categoryName = [...new Set(results.map((result) => result['Card.Category.name']))];
+    // console.log(categoryName);
+
+    const progress = categoryIds.map((categoryId) => {
+      const categoryResults = results.filter((result) => result['Card.Category.id'] === categoryId);
+      //    console.log(categoryResults);
+      const total = categoryResults.length;
+      const islearned = categoryResults.filter((result) => result.isLearned === true).length;
+      return ((islearned / total) * 100).toFixed(2);
+    });
+
+    // console.log(progress);
+
+    res.json({ result: progress });
   } catch (error) {
     console.log(error);
   }
 });
 
 module.exports = router;
+
+// нужно делить длину правильных ответов на общую длину массива под этой категорией.
+
+// reduce
+/*
+results
+{
+    1:'59',
+    2:'66',
+    3: '77,
+}
+*/

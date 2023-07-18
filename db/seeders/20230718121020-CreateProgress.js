@@ -23,6 +23,13 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      {
+        isLearned: true,
+        cardId: 4,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     ], {});
     /**
      * Add seed commands here.
