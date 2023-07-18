@@ -10,10 +10,13 @@ module.exports = function Login() {
       <script defer src="/js/login.js" />
       <form id="loginForm" style={{marginTop:"70px"}}>
         <label htmlFor="exampleInput1" className="form-label">Login</label>
-        <input name="login" type="text" className="form-control" id="exampleInput1" style={{width:'200%'}} />
+        <input name="login" type="text" className="form-control" id="exampleInput1" style={{width:'80%'}} />
+
+        <label htmlFor="exampleInput3" className="form-label">Email</label>
+        <input name="email" type="email" className="form-control" id="exampleInput3" style={{width:'80%'}} />
 
         <label htmlFor="exampleInput2" className="form-label">Password</label>
-        <input name="password" type="password" className="form-control" id="exampleInput2" style={{width:'200%'}} />
+        <input name="password" type="password" className="form-control" id="exampleInput2" style={{width:'80%'}} />
         <button type="submit" className="btn btn-warning">Отправить</button>
       </form>
       <hr />

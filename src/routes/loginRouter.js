@@ -13,9 +13,9 @@ loginRouter.get('/', (req, res) => {
 });
 
 loginRouter.post('/', async (req, res) => {
-  const { login, password } = req.body;
+  const { login, email, password } = req.body;
   try {
-    const user = await User.findOne({ where: { name:login } });
+    const user = await User.findOne({ where: { email:email } });
     if (user) {
       const checkPass = await bcrypt.compare(password, user.password);
       if (checkPass) {

@@ -4,7 +4,7 @@ form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const data = new FormData(form);
   const res = Object.fromEntries(data);
-  if (!res.login || !res.password ) {
+  if (!res.login || !res.password || !res.email) {
     alert('Введите свои данные!');
   } else {
     try {
