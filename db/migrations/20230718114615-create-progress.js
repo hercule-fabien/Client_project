@@ -21,7 +21,7 @@ module.exports = {
       cardId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Cards',
+          model: 'Cards.jsx',
           key: 'id',
         },
       },
