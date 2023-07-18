@@ -1,7 +1,6 @@
 const React = require('react');
 
-
-module.exports = function Layout({ children, login}) {
+module.exports = function Layout({ children, login }) {
   return (
     <html lang="en">
 
@@ -9,7 +8,7 @@ module.exports = function Layout({ children, login}) {
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-       
+
         {/* <link rel="stylesheet" href="/stylesheets/application.css" /> */}
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossOrigin="anonymous" />
@@ -75,7 +74,7 @@ module.exports = function Layout({ children, login}) {
 
             <div className="logo-container" style={{ marginTop: '20px' }}>
               {/* <img className="logo center block" src="/images/logo.png" alt="logo" /> */}
-              <h1 className='projName'>PROJECT NAME</h1>
+              <h1 className="projName">PROJECT NAME</h1>
             </div>
           </div>
         </header>

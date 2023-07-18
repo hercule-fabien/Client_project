@@ -4,7 +4,7 @@ form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const data = new FormData(form);
   const res = Object.fromEntries(data);
-  if (!res.login || !res.password || !res.email) {
+  if (!res.password || !res.email) {
     alert('Введите свои данные!');
   } else {
     try {
@@ -22,7 +22,7 @@ form.addEventListener('submit', async (e) => {
         msg.innerText = result.err;
         msg.style.color = 'red';
       } else {
-        window.location.href = '/';
+        window.location.href = '/home';
       }
     } catch (error) {
       alert('Something went wrong :(', error);

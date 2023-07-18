@@ -13,13 +13,14 @@ loginRouter.get('/', (req, res) => {
 });
 
 loginRouter.post('/', async (req, res) => {
-  const { login, email, password } = req.body;
+  const { email, password } = req.body;
   try {
-    const user = await User.findOne({ where: { email:email } });
+    const user = await User.findOne({ where: { email } });
     if (user) {
       const checkPass = await bcrypt.compare(password, user.password);
       if (checkPass) {
         req.session.login = user.name;
+        req.session.email = user.email;
         req.session.save(() => {
           res.json({ msg: 'Вы успешно авторизованы!' });
         });
@@ -33,6 +34,5 @@ loginRouter.post('/', async (req, res) => {
     res.send('Чтото пошло не так', error);
   }
 });
-
 
 module.exports = loginRouter;

@@ -1,18 +1,18 @@
 require('dotenv').config();
-require('@babel/register')
-const session = require('express-session')
-const FileStore = require('session-file-store')(session)
-const express = require('express')
-const logger = require('morgan')
+require('@babel/register');
+const session = require('express-session');
+const FileStore = require('session-file-store')(session);
+const express = require('express');
+const logger = require('morgan');
+const path = require('path');
 const { secureRoute } = require('./src/middlewares/common');
 
-const path = require('path');
 const regRouter = require('./src/routes/regRouter');
 const loginRouter = require('./src/routes/loginRouter');
 const indexRouter = require('./src/routes/index');
 
-const PORT = 3000
-const app = express()
+const PORT = 3000;
+const app = express();
 
 app.use(logger('dev'));
 // Подключаем middleware, которое сообщает epxress, что в папке "ПапкаПроекта/public" будут
@@ -26,25 +26,23 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 const sessionConfig = {
-    name: 'ExamCookie',
-    store: new FileStore(),
-    secret: process.env.SESSION_SECRET ?? 'Секретное слово',
-    resave: false, // * если true, пересохранит сессию, даже если она не менялась
-    saveUninitialized: false, // * если false, куки появятся только при установке req.session
-    cookie: {
-      maxAge: 9999999, // * время жизни в мс (ms)
-      httpOnly: true,
-    },
-  };
+  name: 'ExamCookie',
+  store: new FileStore(),
+  secret: process.env.SESSION_SECRET ?? 'Секретное слово',
+  resave: false, // * если true, пересохранит сессию, даже если она не менялась
+  saveUninitialized: false, // * если false, куки появятся только при установке req.session
+  cookie: {
+    maxAge: 9999999, // * время жизни в мс (ms)
+    httpOnly: true,
+  },
+};
 
 app.use(session(sessionConfig));
 
-
 app.use('/register', secureRoute, regRouter);
 app.use('/login', secureRoute, loginRouter);
-app.use('/', indexRouter)
-
+app.use('/', indexRouter);
 
 app.listen(PORT, () => {
-    console.log(`server started PORT: ${PORT}`);
-  });
+  console.log(`server started PORT: ${PORT}`);
+});
