@@ -22,7 +22,7 @@ form.addEventListener('submit', async (e) => {
         msg.innerText = result.err;
         msg.style.color = 'red';
       } else {
-        window.location.href = '/home';
+        window.location.href = '/';
       }
     } catch (error) {
       alert('Something went wrong :(', error);

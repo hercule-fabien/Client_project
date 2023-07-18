@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 const sessionConfig = {
-  name: 'ExamCookie',
+  name: 'MemorizeCookie',
   store: new FileStore(),
   secret: process.env.SESSION_SECRET ?? 'Секретное слово',
   resave: false, // * если true, пересохранит сессию, даже если она не менялась
