@@ -3,7 +3,9 @@ const countDiv = document.getElementById('progress-count');
 
 (async () => {
   try {
-    const response = await fetch('/account/progress');
+    const response = await fetch('/account', {
+      method: 'POST',
+    });
     const data = await response.json();
 
     const { progress } = data;
