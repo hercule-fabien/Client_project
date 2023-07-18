@@ -24,7 +24,7 @@ router.get('/logout', checkUser, (req, res) => {
   });
 });
 
-router.get('/:categoryId', async (req, res) => {
+router.get('/categories/:categoryId', async (req, res) => {
   const { login } = req.session;
   const { categoryId } = req.params;
   try {
