@@ -10,6 +10,7 @@ const { secureRoute } = require('./src/middlewares/common');
 const regRouter = require('./src/routes/regRouter');
 const loginRouter = require('./src/routes/loginRouter');
 const indexRouter = require('./src/routes/index');
+const progressRouter = require('./src/routes/progressRouter');
 
 const PORT = 3000;
 const app = express();
@@ -26,7 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 const sessionConfig = {
-  name: 'ExamCookie',
+  name: 'MemorizeCookie',
   store: new FileStore(),
   secret: process.env.SESSION_SECRET ?? 'Секретное слово',
   resave: false, // * если true, пересохранит сессию, даже если она не менялась
@@ -42,6 +43,7 @@ app.use(session(sessionConfig));
 app.use('/register', secureRoute, regRouter);
 app.use('/login', secureRoute, loginRouter);
 app.use('/', indexRouter);
+app.use('/account', progressRouter);
 
 app.listen(PORT, () => {
   console.log(`server started PORT: ${PORT}`);

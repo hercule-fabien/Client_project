@@ -45,7 +45,7 @@ module.exports = function Layout({ children, login }) {
                         <span className="nav-link">
                           Hi,
                           {' '}
-                          {login}
+                          <a href="/account">{login}</a>
                         </span>
                       </li>
                       <li className="nav-item">

@@ -1,11 +1,14 @@
-const React = require("react");
-const Layout = require("./Layout");
+const React = require('react');
+const Layout = require('./Layout');
 
-module.exports = function Account() {
+module.exports = function Account({ login }) {
   return (
-    <Layout>
-      {/* Добавить карточку */}
-      <Layout>
+    <Layout login={login}>
+      <link rel="stylesheet" href="css/progress.css" />
+      <script defer src="/js/progress.js" />
+      <div id="progress-circle">
+        <div id="progress-count" />
+      </div>
         <button
           type="button"
           className="btn btn-primary"
@@ -68,7 +71,5 @@ module.exports = function Account() {
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
       </Layout>
-      {/* Добавить карточку */}
-    </Layout>
   );
 };
