@@ -42,6 +42,16 @@ module.exports = function Account({ login }) {
               </div>
               <div className="modal-body">
                 <form>
+                <div className="form-group">
+                    <select>
+                      <option selected>travel</option>
+                      <option>animal</option>
+                      <option>greetings</option>
+                      <option>entertainment</option>
+                      <option>common phrases</option>
+                      <option>home</option>
+                    </select>
+                  </div>
                   <div className="form-group">
                     <label htmlFor="question">Вопрос</label>
                     <input type="text" className="form-control" id="question" />

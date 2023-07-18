@@ -4,6 +4,6 @@ const Layout = require('./Layout');
 module.exports = function Welcome({login}) {
   return (
     <Layout login={login}>
-<span>PRIVET ARTEM</span>
+<h1>Let's learn</h1>
     </Layout>
   )}
