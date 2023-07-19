@@ -21,6 +21,7 @@ const bodyDiv = document.querySelector('#body');
 
       const circle = document.createElement('div');
       circle.className = 'progress-circle';
+
       circle.style.transform = `rotate(${el.progressPercent * 3.6}deg)`;
 
       const countDiv = document.createElement('div');

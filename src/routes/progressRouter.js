@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
       ],
       raw: true,
     });
-    // console.log(results, '==== results');
+    console.log(results, '==== results');
 
     // const isLearned = results.filter((el) => el.isLearned === true);
     // const categoryOne = results.filter((el) => el['Card.categoryId'] === 1);
@@ -40,7 +40,7 @@ router.post('/', async (req, res) => {
     // const progress = ((isLearnedOne.length / 3) * 100).toFixed(2); // 66.67%
     // const result = [];
     //  result.push(progress);
-console.log(results);
+    // console.log(results);
     const categoryIds = [...new Set(results.map((result) => result['Card.Category.id']))];
     const categoryName = [...new Set(results.map((result) => result['Card.Category.name']))];
     // console.log(categoryName);
