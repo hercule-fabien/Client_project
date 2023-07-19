@@ -2,6 +2,8 @@
 // const countDiv = document.querySelector('.progress-count');
 const bodyDiv = document.querySelector('#body');
 
+// const randomIndex = Math.floor(Math.random() * 3);
+
 (async () => {
   try {
     const response = await fetch('/account', {
@@ -11,23 +13,37 @@ const bodyDiv = document.querySelector('#body');
 
     const { result } = data;
 
-    // console.log(result);
-    // progressCircle.style.transform = `rotate(${progress * 3.6}deg)`;
-    // countDiv.innerHTML = `${progress}%`;
+    console.log(result);
 
-    for (let i = 0; i < result.length; i += 1) {
+    result.map((el) => {
+      const progressContainer = document.createElement('div');
+      progressContainer.className = 'container';
+
       const circle = document.createElement('div');
       circle.className = 'progress-circle';
-      circle.style.transform = `rotate(${result[i] * 3.6}deg)`;
+
+      circle.style.transform = `rotate(${el.progressPercent * 3.6}deg)`;
 
       const countDiv = document.createElement('div');
-      countDiv.innerHTML = `${result[i]}%`;
+      countDiv.innerHTML = `${el.progressPercent}%`;
       countDiv.className = 'progress-count';
 
+      const randomCheers = ['Hooray for you! Keep up the great work!', 'Practice makes perfect! Keep going!', 'You\'re doing great! Keep up the good work!', 'Cheers to learning!'];
+      const randomIndex = Math.floor(Math.random() * 3);
+
+      const text = document.createElement('h5');
+      text.className = 'cheers';
+
+      text.innerText = `YOU HAVE LEARNED ${el.islearned} OUT OF ${el.total} WORDS IN CATEGORY ${el.categoryName.toUpperCase()}! \n ${randomCheers[randomIndex]} `;
+
       circle.appendChild(countDiv);
-      bodyDiv.appendChild(circle);
-    }
+      progressContainer.appendChild(circle);
+      progressContainer.appendChild(text);
+      bodyDiv.appendChild(progressContainer);
+
+      return bodyDiv;
+    });
   } catch (error) {
-    alert('Что-то совсем плохо :((( ', error);
+    alert('Something went wrong :((( ', error);
   }
 })();
