@@ -17,6 +17,13 @@ router.get('/home', async(req,res) => {
   renderTemplate(Home, {login, categories}, res)
 })
 
+router.post('/newCard', async(req,res) => {
+  const {categoryName, question, answer} = req.body
+  const category = await Category.findOne({where: {name:categoryName}})
+  const newCard = await Card.create({categoryId:category.id, question, answer})
+  res.json(newCard)
+})
+
 router.get('/logout', checkUser, (req, res) => {
   req.session.destroy(() => {
     res.clearCookie('MemorizeCookie');
