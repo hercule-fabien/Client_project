@@ -2,7 +2,7 @@ const React = require('react');
 const Layout = require('./Layout');
 
 module.exports = function Cards({ login, category, cards }) {
-  console.log('status ===> ', cards[0].Progresses[0].dataValues.isLearned);
+  // console.log('status ===> ', cards[0].Progresses[0].dataValues.isLearned);
   return (
     <Layout login={login}>
       <link rel="stylesheet" href="/css/cards.css" />
