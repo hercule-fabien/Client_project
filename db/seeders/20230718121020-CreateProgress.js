@@ -30,6 +30,34 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      {
+        isLearned: true,
+        cardId: 5,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        isLearned: false,
+        cardId: 6,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        isLearned: true,
+        cardId: 7,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        isLearned: true,
+        cardId: 8,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     ], {});
     /**
      * Add seed commands here.

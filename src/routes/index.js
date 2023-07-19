@@ -1,9 +1,14 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 const renderTemplate = require('../lib/renderTemplate');
 const { checkUser } = require('../middlewares/common');
 const Welcome = require('../views/Welcome');
 const Cards = require('../views/Cards');
+const {
+  Category, Card, User, Progress,
+} = require('../../db/models');
+const Home = require('../views/Home');
 const {
   Category, Card, User, Progress,
 } = require('../../db/models');
@@ -21,9 +26,16 @@ router.get('/home', async (req, res) => {
 });
 
 router.post('/newCard', async (req, res) => {
+  const { email } = req.session;
   const { categoryName, question, answer } = req.body;
+  const user = await User.findOne({ where: { email } });
   const category = await Category.findOne({ where: { name: categoryName } });
   const newCard = await Card.create({ categoryId: category.id, question, answer });
+  await Progress.create({
+    isLearned: false,
+    userId: user.id,
+    cardId: newCard.id,
+  });
   res.json(newCard);
 });
 
