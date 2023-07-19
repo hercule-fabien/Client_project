@@ -1,9 +1,14 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 const renderTemplate = require('../lib/renderTemplate');
 const { checkUser } = require('../middlewares/common');
 const Welcome = require('../views/Welcome');
 const Cards = require('../views/Cards');
+const {
+  Category, Card, User, Progress,
+} = require('../../db/models');
+const Home = require('../views/Home');
 const {
   Category, Card, User, Progress,
 } = require('../../db/models');
@@ -53,15 +58,20 @@ router.post('/lostpass', async (req, res) => {
     return result;
   }
   const { email } = req.body;
-  const mailCheck = await User.findOne({ where: { email } });
-  if (!mailCheck) {
-    res.json({ status: 403 });
-  } else {
-    const newPass = randomPass();
-    const hashPass = await bcrypt.hash(newPass, 10);
-    await User.update({ password: hashPass }, { where: { email } });
-    console.log(res);
-    res.json({ status: 200, data: newPass, name: mailCheck.name });
+  // console.log(req.body)
+  try {
+    const mailCheck = await User.findOne({ where: { email } });
+    if (!mailCheck) {
+      res.json({ status: 403 });
+    } else {
+      const newPass = randomPass();
+      const hashPass = await bcrypt.hash(newPass, 10);
+      await User.update({ password: hashPass }, { where: { email } });
+      console.log(res);
+      res.json({ status: 200, data: newPass, name: mailCheck.name });
+    }
+  } catch (error) {
+    res.send(error);
   }
 });
 
