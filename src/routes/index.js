@@ -21,8 +21,8 @@ router.get('/home', async (req, res) => {
 });
 
 router.post('/newCard', async (req, res) => {
-  const { email } = req.session;
   const { categoryName, question, answer } = req.body;
+  const { email } = req.session;
   const user = await User.findOne({ where: { email } });
   const category = await Category.findOne({ where: { name: categoryName } });
   const newCard = await Card.create({ categoryId: category.id, question, answer });
@@ -68,15 +68,22 @@ router.post('/lostpass', async (req, res) => {
 router.get('/categories/:categoryId', async (req, res) => {
   const { login } = req.session;
   const { categoryId } = req.params;
+  const { email } = req.session;
+  const user = await User.findOne({ where: { email } });
   try {
     const category = await Category.findByPk(categoryId);
     const cards = await Card.findAll(
       {
         where: { categoryId },
-        include: Progress,
+        include: [
+          {
+            model: Progress,
+            where: { userId: user.id },
+            required: false,
+          },
+        ],
       },
     );
-    console.log('CARDS ===> ', cards);
     renderTemplate(Cards, { login, category, cards }, res);
   } catch (error) {
     console.error(error);
@@ -84,12 +91,23 @@ router.get('/categories/:categoryId', async (req, res) => {
 });
 
 router.patch('/categories/cards/:id', async (req, res) => {
+  const { email } = req.session;
   const cardId = req.params.id;
   try {
-    const progress = await Progress.findOne({ where: { cardId } });
-    progress.isLearned = !progress.isLearned;
-    await progress.save();
-    res.json(progress);
+    const user = await User.findOne({ where: { email } });
+    const progress = await Progress.findOne({ where: { cardId, userId: user.id } });
+    if (progress) {
+      progress.isLearned = !progress.isLearned;
+      await progress.save();
+      res.json(progress);
+    } else {
+      const newProgress = await Progress.create({
+        isLearned: true,
+        userId: user.id,
+        cardId,
+      });
+      res.json(newProgress);
+    }
   } catch (error) {
     console.error(error);
   }

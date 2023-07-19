@@ -16,12 +16,13 @@ regRouter.post('/', async (req, res) => {
   const { login, email, password } = req.body;
   try {
     const hash = await bcrypt.hash(password, 10);
-    const user = await User.findOne({ where: { email:email } });
+    const user = await User.findOne({ where: { email } });
     if (user) {
       res.json({ err: 'Такой пользователь уже существует' });
     } else {
-      const newUser = await User.create({ name: login, email:email, password: hash });
+      const newUser = await User.create({ name: login, email, password: hash });
       req.session.login = newUser.name;
+      req.session.email = newUser.email;
       req.session.save(() => {
         res.json({ msg: 'Пользователь зарегистрирован' });
       });

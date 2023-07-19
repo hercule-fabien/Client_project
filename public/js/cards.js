@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         method: 'PATCH',
       });
       const data = await result.json();
-
+      console.log('Data ==> ', data);
       if (data.isLearned) {
         const cardFaces = button.closest('.card').querySelectorAll('.card__face');
         cardFaces.forEach((face) => face.classList.add('card__face--learned'));
