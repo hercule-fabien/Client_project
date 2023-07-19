@@ -2,6 +2,7 @@ const React = require('react');
 const Layout = require('./Layout');
 
 module.exports = function Cards({ login, category, cards }) {
+  console.log('status ===> ', cards[0].Progresses[0].dataValues.isLearned);
   return (
     <Layout login={login}>
       <link rel="stylesheet" href="/css/cards.css" />
@@ -14,14 +15,24 @@ module.exports = function Cards({ login, category, cards }) {
         {cards.map((card) => (
           <div className="card-body scene scene--card">
             <div className="card" style={{ width: '355px' }}>
-              <div className="card__face card__face--front">
-                <div className="card-info">
-                  <h2 className="card-title">{card.question}</h2>
+              {card.Progresses[0].dataValues.isLearned ? (
+                <div className="card__face card__face--front card__face--learned">
+                  <div className="card-info">
+                    <h2 className="card-title">{card.question}</h2>
+                    <div className="status">Learned</div>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className="card__face card__face--front">
+                  <div className="card-info">
+                    <h2 className="card-title">{card.question}</h2>
+                    <div className="status">Not Learned</div>
+                  </div>
+                </div>
+              )}
               <div className="card__face card__face--back">
                 <h2 className="card-title">{card.answer}</h2>
-                <button className="btn">Изучено</button>
+                <button className="btn btn-learned" data-cardid={card.id}>Изучено</button>
               </div>
             </div>
           </div>
