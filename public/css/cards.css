@@ -86,3 +86,7 @@
     background: var(--clr-primary-5);
     transform: rotateY(180deg);
 }
+.card__face--learned {
+    background: var(--clr-primary-1);
+}
+
