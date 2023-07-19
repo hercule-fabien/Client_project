@@ -11,23 +11,26 @@ const bodyDiv = document.querySelector('#body');
 
     const { result } = data;
 
-    // console.log(result);
-    // progressCircle.style.transform = `rotate(${progress * 3.6}deg)`;
-    // countDiv.innerHTML = `${progress}%`;
+    console.log(result);
 
-    for (let i = 0; i < result.length; i += 1) {
+    result.map((el) => {
       const circle = document.createElement('div');
       circle.className = 'progress-circle';
-      circle.style.transform = `rotate(${result[i] * 3.6}deg)`;
+      circle.style.transform = `rotate(${el.progressPercent * 3.6}deg)`;
 
       const countDiv = document.createElement('div');
-      countDiv.innerHTML = `${result[i]}%`;
+      countDiv.innerHTML = `${el.progressPercent}%`;
       countDiv.className = 'progress-count';
+
+      const text = document.createElement('h5');
+      text.innerText = `YOU HAVE LEARNED ${el.islearned} OUT OF ${el.total}. Keep it up! `;
 
       circle.appendChild(countDiv);
       bodyDiv.appendChild(circle);
-    }
+      bodyDiv.appendChild(text);
+      return bodyDiv;
+    });
   } catch (error) {
-    alert('Что-то совсем плохо :((( ', error);
+    alert('Something went wrong :((( ', error);
   }
 })();
