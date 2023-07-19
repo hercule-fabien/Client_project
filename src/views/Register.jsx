@@ -12,7 +12,7 @@ function Register() {
         <input name="login" type="text" className="form-control" id="exampleInput1" style={{width:'80%'}} />
 
         <label htmlFor="exampleInput3" className="form-label">Email</label>
-        <input name="email" type="email" className="form-control" id="exampleInput3" style={{width:'80%'}} />
+        <input name="email" type="email" className="form-control" id="email" style={{width:'80%'}} />
 
         <label htmlFor="exampleInput2" className="form-label">Password</label>
         <input name="password" type="password" className="form-control" id="exampleInput2" style={{width:'80%'}}/>

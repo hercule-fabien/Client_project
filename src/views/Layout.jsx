@@ -25,7 +25,7 @@ module.exports = function Layout({ children, login }) {
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
               <div className="container-fluid">
                 <a className="navbar-brand" href="/">
-                  Home
+                  <img src='/img/image.png' alt='#' style={{width:'100px', height:'100px'}}/>
                 </a>
                 <button
                   className="navbar-toggler"
