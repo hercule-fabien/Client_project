@@ -1,7 +1,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('Cards.jsx', [
+    await queryInterface.bulkInsert('Cards', [
       {
         question: 'Airport',
         answer: 'Аэропорт',
@@ -72,7 +72,7 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('Cards.jsx', null, {});
+    await queryInterface.bulkDelete('Cards', null, {});
     /**
      * Add commands to revert seed here.
      *

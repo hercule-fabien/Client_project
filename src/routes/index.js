@@ -1,11 +1,13 @@
 const router = require('express').Router();
+const bcrypt = require('bcrypt');
 const renderTemplate = require('../lib/renderTemplate');
 const { checkUser } = require('../middlewares/common');
 const Welcome = require('../views/Welcome');
 const Cards = require('../views/Cards');
-const { Category, Card, User, Progress } = require('../../db/models');
-const Home = require('../views/Home')
-const bcrypt = require('bcrypt');
+const {
+  Category, Card, User, Progress,
+} = require('../../db/models');
+const Home = require('../views/Home');
 
 router.get('/', (req, res) => {
   const { login } = req.session;
@@ -19,9 +21,16 @@ router.get('/home', async (req, res) => {
 });
 
 router.post('/newCard', async (req, res) => {
+  const { email } = req.session;
   const { categoryName, question, answer } = req.body;
+  const user = await User.findOne({ where: { email } });
   const category = await Category.findOne({ where: { name: categoryName } });
   const newCard = await Card.create({ categoryId: category.id, question, answer });
+  await Progress.create({
+    isLearned: false,
+    userId: user.id,
+    cardId: newCard.id,
+  });
   res.json(newCard);
 });
 
@@ -44,21 +53,16 @@ router.post('/lostpass', async (req, res) => {
     return result;
   }
   const { email } = req.body;
-  // console.log(req.body)
-  // try {
-    const mailCheck = await User.findOne({ where: { email } });
-    if (!mailCheck) {
-      res.json({ status: 403 });
-    } else {
-      const newPass = randomPass();
-      const hashPass = await bcrypt.hash(newPass, 10);
-      await User.update({ password: hashPass }, { where: { email } });
-      console.log(res)
-      res.json({ status: 200, data: newPass, name: mailCheck.name });
-    }
-  // } catch (error) {
-  //   res.send(error);
-  // }
+  const mailCheck = await User.findOne({ where: { email } });
+  if (!mailCheck) {
+    res.json({ status: 403 });
+  } else {
+    const newPass = randomPass();
+    const hashPass = await bcrypt.hash(newPass, 10);
+    await User.update({ password: hashPass }, { where: { email } });
+    console.log(res);
+    res.json({ status: 200, data: newPass, name: mailCheck.name });
+  }
 });
 
 router.get('/categories/:categoryId', async (req, res) => {
@@ -72,7 +76,7 @@ router.get('/categories/:categoryId', async (req, res) => {
         include: Progress,
       },
     );
-    console.log('Cards 0 ====> ', cards[0].Progresses[0].dataValues);
+    console.log('CARDS ===> ', cards);
     renderTemplate(Cards, { login, category, cards }, res);
   } catch (error) {
     console.error(error);
