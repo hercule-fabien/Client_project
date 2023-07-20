@@ -14,80 +14,82 @@ module.exports = function Account({ login }) {
           <li className="breadcrumb-item"><a href="/editProfile">Редактировать профиль</a></li>
         </ol>
       </nav>
-      <div id="mainDiv">
-        <div id="body" className="row">
-          {/* <div className="progress-circle">
+      <div className="mainDiv container">
+        <div className="row">
+          <div id="body" className="col-sm">
+            {/* <div className="progress-circle">
           <div className="progress-count" />
         </div> */}
-        </div>
-        <div id="modalDiv">
-          <h5>Расширь свой словарный запас! Добавь новую карточку со словом!</h5>
-          <button
-            type="button"
-            className="btn btn-primary"
-            data-toggle="modal"
-            data-target=".bd-example-modal-lg"
-          >
-            Добавить карточку
-          </button>
-          <div
-            className="modal fade bd-example-modal-lg"
-            tabIndex="-1"
-            role="dialog"
-            aria-labelledby="myLargeModalLabel"
-            aria-hidden="true"
-          >
-            <div className="modal-dialog modal-lg">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="myLargeModalLabel">
-                    Добавить карточку
-                  </h5>
-                  <button
-                    type="button"
-                    className="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div className="modal-body">
-                  <form className="newCard">
-                    <div className="form-group">
-                      <select name="categoryName">
-                        <option selected>travel</option>
-                        <option>animal</option>
-                        <option>greetings</option>
-                        <option>entertainment</option>
-                        <option>common phrases</option>
-                        <option>home</option>
-                      </select>
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="question">Вопрос</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="question"
-                        name="question"
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="answer">Ответ</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="answer"
-                        name="answer"
-                      />
-                    </div>
-                    <div className="modal-footer">
-                      <button type="submit" className="btn btn-primary">
-                        Добавить
-                      </button>
-                    </div>
-                  </form>
+          </div>
+          <div className="modalDiv col-sm ">
+            <h5>Расширь свой словарный запас! Добавь новую карточку со словом!</h5>
+            <button
+              type="button"
+              className="btn btn-outline-warning"
+              data-toggle="modal"
+              data-target=".bd-example-modal-lg"
+            >
+              Добавить карточку
+            </button>
+            <div
+              className="modal fade bd-example-modal-lg"
+              tabIndex="-1"
+              role="dialog"
+              aria-labelledby="myLargeModalLabel"
+              aria-hidden="true"
+            >
+              <div className="modal-dialog modal-lg">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="myLargeModalLabel">
+                      Добавить карточку
+                    </h5>
+                    <button
+                      type="button"
+                      className="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div className="modal-body">
+                    <form className="newCard">
+                      <div className="form-group">
+                        <select name="categoryName">
+                          <option selected>travel</option>
+                          <option>animal</option>
+                          <option>greetings</option>
+                          <option>entertainment</option>
+                          <option>common phrases</option>
+                          <option>home</option>
+                        </select>
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="question">Вопрос</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="question"
+                          name="question"
+                        />
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="answer">Ответ</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="answer"
+                          name="answer"
+                        />
+                      </div>
+                      <div className="modal-footer">
+                        <button type="submit" className="btn btn-primary">
+                          Добавить
+                        </button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
