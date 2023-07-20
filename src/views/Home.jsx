@@ -16,15 +16,11 @@ module.exports = function Home({ login, categories }) {
       }}
       >
         {categories.map((category) => (
-          <div className="card w-40" style={{ width: '355px', heigth: '27rem' }}>
+          <div className="card w-40" style={{ width: '355px', height: '15rem' }}>
             <div className="card-body" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <h1 className="card-title">{category.name.toUpperCase()}</h1>
               <a href={`/categories/${category.id}`} className="btn btn-outline-warning oneCategory">
-                Learn
-                {' '}
-                <strong>{category.name}</strong>
-                {' '}
-                now!
+                Изучать
               </a>
             </div>
           </div>

@@ -48,7 +48,7 @@ module.exports = function Cards({ login, category, cards }) {
 
               <div className="card__face card__face--back">
                 <h2 className="card-title">{card.answer}</h2>
-                <button type="button" className="btn btn-learned btn-success" data-cardid={card.id}>Сменить статус</button>
+                <button type="button" className="btn btn-learned btn-success" data-cardid={card.id}>Я выучил</button>
               </div>
             </div>
           </div>
