@@ -16,8 +16,6 @@ module.exports = function Layout({ children, login }) {
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
         <link rel="stylesheet" href="/css/style.css" />
-        {/* <script defer src="/js/application.js" /> */}
-
         <title>АНГЛИЙСКИЙ-ЛЕГКО</title>
       </head>
 
@@ -49,7 +47,7 @@ module.exports = function Layout({ children, login }) {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                   {login ? (
-                    <ul className="navbar-nav">
+                    <ul className="navbar-nav d-flex justify-content-between">
                       <li className="nav-item">
                         <span className="nav-link">
                           Hi,
@@ -58,7 +56,7 @@ module.exports = function Layout({ children, login }) {
                         </span>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="/logout">
+                        <a className="nav-link btn btn-outline-secondary" id="logout" href="/logout">
                           Logout
                         </a>
                       </li>
@@ -87,7 +85,7 @@ module.exports = function Layout({ children, login }) {
             </div>
           </div>
         </header>
-        <div className="bg-dk-green pad-t-2 pad-s-1 pad-b-8 mar-b-16 c-white">
+        <div className="bg-dk-green pad-t-2 pad-s-1 pad-b-8 mar-b-16 c-white main">
           <div className="max-w-700 center mainContentPage">
             {children}
           </div>

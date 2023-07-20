@@ -1,24 +1,24 @@
 .progress-circle {
-    background: radial-gradient(white 50%, transparent 51%),
-      conic-gradient(transparent 0deg 220deg, gainsboro 220deg 360deg),
-      conic-gradient(#ee8498 0deg, #f7cf79 90deg, #acecf7 180deg, #586a6a);
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    
-    transition: all 500ms ease-in; 
-    will-change: transform;
+  background: radial-gradient(white 50%, transparent 51%),
+    conic-gradient(transparent 0deg 220deg, gainsboro 220deg 360deg),
+    conic-gradient(#ee8498 0deg, #f7cf79 90deg, #acecf7 180deg, #586a6a);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
 
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-  }
+  transition: all 500ms ease-in;
+  will-change: transform;
 
-.cheers{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cheers {
   padding: 20px;
 }
 
-.container{
+.container {
   display: flex;
   padding: 20px;
 }
