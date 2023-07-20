@@ -8,10 +8,18 @@ module.exports = function Cards({ login, category, cards }) {
       <link href="https://unpkg.com/css.gg@2.0.0/icons/css/check-o.css" rel="stylesheet" />
       <link rel="stylesheet" href="/css/cards.css" />
       <script defer src="/js/cards.js" />
-      <h1 className="cards-title">
-        Тема для изучения: <span>{category.name}</span>
-      </h1>
-      <div className="cards-container">
+      <nav aria-label="breadcrumb">
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item"><a href="/">Домой</a></li>
+          <li className="breadcrumb-item"><a href="/home">Темы</a></li>
+          <li className="breadcrumb-item active" aria-current="page">Карты</li>
+        </ol>
+      </nav>
+      {/* <h1>
+        Practice,
+        {category.name}
+      </h1> */}
+      <div className="container section-center blog-center">
         {cards.map((card) => (
           <div className="card-body scene scene--card" key={card.id}>
             <div className="card">

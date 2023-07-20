@@ -6,7 +6,7 @@
     width: 120px;
     height: 120px;
     
-    transition: all 500ms ease-in;
+    transition: all 500ms ease-in; 
     will-change: transform;
 
     display: flex;
@@ -21,4 +21,8 @@
 .container{
   display: flex;
   padding: 20px;
+}
+
+#mainDiv {
+  display: flex;
 }
