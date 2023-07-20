@@ -11,6 +11,7 @@ module.exports = function Account({ login }) {
         <ol className="breadcrumb">
           <li className="breadcrumb-item"><a href="/">Домой</a></li>
           <li className="breadcrumb-item active" aria-current="page">Личный кабинет</li>
+          <li className="breadcrumb-item"><a href="/editProfile">Редактировать профиль</a></li>
         </ol>
       </nav>
       <div id="mainDiv">
@@ -93,39 +94,6 @@ module.exports = function Account({ login }) {
           </div>
         </div>
       </div>
-
-      <div className="changeProfile">
-          <a href='/editProfile'><button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Редактировать профиль
-          </button></a>
-          <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div className="modal-dialog" role="document">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLabel">Изменить пароль</h5>
-                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div className="modal-body">
-                  <form name="changePassword">
-                    <div className="form-group">
-                      <input type="password" className="form-control" id="exampleInputPassword1" placeholder="старый пароль" />
-                    </div>
-                    <br />
-                    <div className="form-group">
-                      <input type="password" className="form-control" id="exampleInputPassword2" placeholder="новый пароль" />
-                    </div>
-                  </form>
-                </div>
-                <div className="modal-footer">
-                  <button type="button" className="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                  <button type="submit" className="btn btn-primary">Сохранить</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" />
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" />
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" />
