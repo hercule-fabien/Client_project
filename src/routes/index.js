@@ -13,7 +13,7 @@ const Home = require('../views/Home');
 
 router.get('/', (req, res) => {
   const { login } = req.session;
-  renderTemplate(Welcome, { login }, res);
+  renderTemplate(Welcome, { login, title: 'Домашняя страница' }, res);
 });
 
 router.get('/home', async (req, res) => {

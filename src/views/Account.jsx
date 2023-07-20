@@ -19,7 +19,7 @@ module.exports = function Account({ login }) {
           <div className="progress-count" />
         </div> */}
         </div>
-        <div className="modalDiv">
+        <div id="modalDiv">
           <h5>Расширь свой словарный запас! Добавь новую карточку со словом!</h5>
           <button
             type="button"
@@ -92,7 +92,9 @@ module.exports = function Account({ login }) {
             </div>
           </div>
         </div>
-        <div className="changeProfile">
+      </div>
+
+      <div className="changeProfile">
           <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             Редактировать профиль
           </button>
@@ -124,8 +126,6 @@ module.exports = function Account({ login }) {
             </div>
           </div>
         </div>
-      </div>
-
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" />
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" />
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" />

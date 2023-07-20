@@ -26,7 +26,8 @@ const bodyDiv = document.querySelector('#body');
 
       const progressLine = document.createElement('div');
       progressLine.className = 'progress col-9';
-      progressLine.style.width = '30%';
+      progressLine.style.width = '50%';
+      progressLine.style.padding = '0';
       progressLine.innerHTML = `<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style="width: ${el.progressPercent}%" aria-valuenow="${el.progressPercent}" aria-valuemin="0" aria-valuemax="100"></div>`;
 
 
