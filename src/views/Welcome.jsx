@@ -12,7 +12,7 @@ module.exports = function Welcome({login}) {
       </div>
       <div class="col-lg-6">
         <h1 class="display-5 fw-bold lh-1 mb-3">Let's learn</h1>
-        <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+        <p class="lead">Добро пожаловать на сайт для изучения английского языка! Здесь вы сможете легко освоить новые слова и фразы. Мы предлагаем интересные карточки с английскими словами и их переводами, чтобы вы могли учиться эффективно и с удовольствием. Присоединяйтесь и начните улучшать свои знания английского языка прямо сейчас! Удачи в изучении!</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
           <a href='/login'><button type="button" class="btn btn-warning btn-lg px-4 me-md-2">Login</button></a>
           <a href='/register'><button type="button" class="btn btn-outline-secondary btn-lg px-4">Register</button></a>
