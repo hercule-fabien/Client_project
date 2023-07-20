@@ -5,16 +5,7 @@ module.exports = function EditPassword({ login }) {
   return (
     <Layout>
       <script defer src="/js/changePass.js" />
-      <nav aria-label="breadcrumb">
-        <ol className="breadcrumb">
-          <li className="breadcrumb-item"><a href="/">Домой</a></li>
-          <li className="breadcrumb-item">
-            <a href="/account">Личный кабинет</a>
-            {' '}
-          </li>
-          <li className="breadcrumb-item active" aria-current="page">Редактировать профиль</li>
-        </ol>
-      </nav>
+  
       <div style={{ textAlign: "center" }}>
         <h1
           style={{ color: "#fbe1a1", opacity: "80%", fontSize: "32px" }}

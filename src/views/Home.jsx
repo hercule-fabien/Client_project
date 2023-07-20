@@ -4,12 +4,7 @@ const Layout = require('./Layout');
 module.exports = function Home({ login, categories }) {
   return (
     <Layout login={login}>
-      <nav aria-label="breadcrumb">
-        <ol className="breadcrumb">
-          <li className="breadcrumb-item"><a href="/">Домой</a></li>
-          <li className="breadcrumb-item active" aria-current="page">Темы</li>
-        </ol>
-      </nav>
+      
       <h1 style={{ textAlign: 'center', margin: '30px' }}>Choose a category!</h1>
       <div style={{
         display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center',

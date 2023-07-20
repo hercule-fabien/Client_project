@@ -7,13 +7,7 @@ module.exports = function Account({ login }) {
       <link rel="stylesheet" href="css/progress.css" />
       <script defer src="/js/progress.js" />
       <script defer src="/js/addCard.js" />
-      <nav aria-label="breadcrumb">
-        <ol className="breadcrumb">
-          <li className="breadcrumb-item"><a href="/">Домой</a></li>
-          <li className="breadcrumb-item active" aria-current="page">Личный кабинет</li>
-          <li className="breadcrumb-item"><a href="/editProfile">Редактировать профиль</a></li>
-        </ol>
-      </nav>
+
       <div className="mainDiv container">
         <div className="row">
           <div id="body" className="col-sm">
@@ -22,15 +16,28 @@ module.exports = function Account({ login }) {
         </div> */}
           </div>
           <div className="modalDiv col-sm ">
-            <h5>Расширь свой словарный запас! Добавь новую карточку со словом!</h5>
-            <button
-              type="button"
-              className="btn btn-outline-warning"
-              data-toggle="modal"
-              data-target=".bd-example-modal-lg"
-            >
-              Добавить карточку
-            </button>
+            <h5>Сделай свой словарь богаче! Редактируй профиль или добавь свои слова!</h5>
+            <div className="buttons" style={{display:'flex', flexDirection:'column', alignItems:'space-around', gap: '15px'}}>
+              <a href="/editProfile">
+                <button
+                style={{width:'250px'}}
+                  type="button"
+                  className="btn btn-outline-warning"
+                >
+                  Редактировать профиль
+                </button>
+
+              </a>
+              <button
+                type="button"
+                className="btn btn-outline-warning"
+                data-toggle="modal"
+                data-target=".bd-example-modal-lg"
+                style={{width:'250px'}}
+              >
+                Добавить карточку
+              </button>
+            </div>
             <div
               className="modal fade bd-example-modal-lg"
               tabIndex="-1"
@@ -95,7 +102,9 @@ module.exports = function Account({ login }) {
                 </div>
               </div>
             </div>
+
           </div>
+
         </div>
       </div>
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" />

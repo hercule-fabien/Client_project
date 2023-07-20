@@ -1,6 +1,7 @@
 body {
     font-family: 'Montserrat', sans-serif;
     color: var(--clr-jet-5);
+    padding:20px;
 }
 
 .navbar-nav {
@@ -25,7 +26,7 @@ body {
 }
 
 .main {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     padding-bottom: 40px;
 }

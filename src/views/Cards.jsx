@@ -9,13 +9,6 @@ module.exports = function Cards({ login, category, cards }) {
       <link rel="stylesheet" href="/css/cards.css" />
       <script defer src="/js/cards.js" />
       <script defer src="/js/deleteCard.js" />
-      <nav aria-label="breadcrumb">
-        <ol className="breadcrumb">
-          <li className="breadcrumb-item"><a href="/">Домой</a></li>
-          <li className="breadcrumb-item"><a href="/home">Темы</a></li>
-          <li className="breadcrumb-item active" aria-current="page">Карты</li>
-        </ol>
-      </nav>
       <h1 className="cards-title">
         Вы изучаете -
         {' '}

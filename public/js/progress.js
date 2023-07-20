@@ -20,8 +20,7 @@ const bodyDiv = document.querySelector('#body');
       const circle = document.createElement('div');
       circle.className = 'progress-circle col-4';
 
-      circle.style.transform = `rotate(${el.progressPercent * 3.6}deg)`;
-      // circle.style.animation = `rotate-animation ${(el.progressPercent * 3.6) / 100}s linear infinite`;
+      // circle.style.transform = `rotate(${el.progressPercent * 3.6}deg)`;
       circle.style.background = `radial-gradient(white 50%, transparent 51%),
     conic-gradient(transparent 0deg ${(el.progressPercent * 3.6)}deg, gainsboro 220deg 360deg),
     conic-gradient(#ee8498 0deg, #f7cf79 90deg, #acecf7 180deg, #586a6a)`;
