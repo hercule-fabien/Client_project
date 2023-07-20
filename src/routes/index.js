@@ -28,27 +28,17 @@ router.get('/editProfile', (req, res) => {
 
 router.put('/newPassword', async (req, res) => {
   const { currentPassword, newPassword, newPasswordValid } = req.body;
-  //console.log(req.body, 'SMOTRI REQ BODY');
   const { email } = req.session;
-  // console.log(req.session)
   const user = await User.findOne({ where: { email } });
-  console.log(user, '<=====USER');
-  // const currentHash = await bcrypt.hash(currentPassword, 10);
-  // console.log()
-  console.log(newPassword, newPasswordValid, user.password, 'TUT BIG CONSOLE LOG');
   const checkPassword = await bcrypt.compare(currentPassword, user.password);
   if (newPassword === newPasswordValid && checkPassword) {
-    console.log('PROVERKA ZAHODA V IF');
     const hash = await bcrypt.hash(newPassword, 10);
     const newPersonalInfo = await User.update(
       { password: hash },
       { where: { email } },
     );
-    console.log(newPersonalInfo, '<==========');
-    // alert('Пароль успешно изменен!')
     res.json(newPersonalInfo);
   } else {
-    // alert('Что-то пошло не так, попробуйте еще раз')
     res.sendStatus(403);
   }
 });
@@ -71,17 +61,17 @@ router.post('/newCard', async (req, res) => {
   res.json(newCard);
 });
 
-router.get('/logout', checkUser, (req, res) => {
+router.get("/logout", checkUser, (req, res) => {
   req.session.destroy(() => {
-    res.clearCookie('MemorizeCookie');
-    res.redirect('/');
+    res.clearCookie("MemorizeCookie");
+    res.redirect("/");
   });
 });
 
-router.post('/lostpass', async (req, res) => {
+router.post("/lostpass", async (req, res) => {
   function randomPass() {
-    let result = '';
-    const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    let result = "";
+    const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
     let counter = 0;
     while (counter < 8) {
       result += characters.charAt(
@@ -92,7 +82,7 @@ router.post('/lostpass', async (req, res) => {
     return result;
   }
   const { email } = req.body;
-  // console.log(req.body)
+
   try {
     const mailCheck = await User.findOne({ where: { email } });
     if (!mailCheck) {
@@ -101,7 +91,6 @@ router.post('/lostpass', async (req, res) => {
       const newPass = randomPass();
       const hashPass = await bcrypt.hash(newPass, 10);
       await User.update({ password: hashPass }, { where: { email } });
-      console.log(res);
       res.json({ status: 200, data: newPass, name: mailCheck.name });
     }
   } catch (error) {
@@ -130,17 +119,6 @@ router.get('/categories/:categoryId', async (req, res) => {
   } catch (error) {
     console.error(error);
   }
-});
-
-router.delete('/cards/:id', async (req, res) => {
-  const { id } = req.params;
-  const card = await Card.findOne({ where: { id } });
-  const progress = await Progress.findOne({where: {cardId: card.id}})
-  if(progress) {
-    await Progress.destroy({ where: { cardId: card.id } });
-  }
-  await Card.destroy({ where: { id } });
-  res.send('card deleted');
 });
 
 router.patch('/categories/cards/:id', async (req, res) => {
