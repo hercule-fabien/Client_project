@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await result.json();
       if (data.isLearned) {
         const cardFaces = button.closest('.card').querySelectorAll('.card__face');
-        cardFaces.forEach((face) => face.classList.add('card__face--learned'));
+        // cardFaces.forEach((face) => face.classList.add('card__face--learned'));
         checkMarkElem.innerHTML = '<i class = "gg-check-o" />';
       } else {
         const cardFaces = button.closest('.card').querySelectorAll('.card__face');
