@@ -1,7 +1,16 @@
+/*@keyframes rotate-animation {*/
+/*  from {*/
+/*    transform: rotate(0deg);*/
+/*  }*/
+/*  to {*/
+/*    transform: rotate(360deg);*/
+/*  }*/
+/*}*/
+
 .progress-circle {
-  background: radial-gradient(white 50%, transparent 51%),
-    conic-gradient(transparent 0deg 360deg, gainsboro 220deg 360deg),
-    conic-gradient(#ee8498 0deg, #f7cf79 90deg, #acecf7 180deg, #586a6a);
+  /*background: radial-gradient(white 50%, transparent 51%),*/
+  /*  conic-gradient(transparent 0deg 360deg, gainsboro 220deg 360deg),*/
+  /*  conic-gradient(#ee8498 0deg, #f7cf79 90deg, #acecf7 180deg, #586a6a);*/
   border-radius: 50%;
   width: 120px;
   height: 120px;
@@ -22,7 +31,3 @@
   display: flex;
   padding: 20px;
 }
-
-/* .mainDiv {
-  display: flex;
-} */

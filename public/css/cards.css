@@ -2,25 +2,21 @@
 
 :root {
     /* dark shades of primary color*/
-    --clr-primary-1: hsl(43, 86%, 17%);
-    --clr-primary-2: hsl(43, 77%, 27%);
+    --clr-primary-1: #acecf7;
+    --clr-primary-2: hsl(43, 90%, 76%);
     --clr-primary-3: hsl(43, 72%, 37%);
     --clr-primary-4: hsl(42, 63%, 48%);
     /* primary/main color */
     --clr-primary-5: hsl(42, 78%, 60%);
     /* lighter shades of primary color */
     --clr-primary-6: hsl(43, 89%, 70%);
-    --clr-primary-7: hsl(43, 90%, 76%);
+
     --clr-primary-8: hsl(45, 86%, 81%);
     --clr-primary-9: hsl(45, 90%, 88%);
     --clr-primary-10: hsl(45, 100%, 96%);
-    /* darkest grey - used for headings */
-    --clr-grey-1: hsl(209, 61%, 16%);
-    --clr-grey-2: hsl(211, 39%, 23%);
-    --clr-grey-3: hsl(209, 34%, 30%);
-    --clr-grey-4: hsl(209, 28%, 39%);
+
     /* grey used for paragraphs */
-    --clr-grey-5: hsl(210, 22%, 49%);
+    --clr-jet-5: #363537;
     --clr-grey-6: hsl(209, 23%, 60%);
     --clr-grey-7: hsl(211, 27%, 70%);
     --clr-grey-8: hsl(210, 31%, 80%);
@@ -35,6 +31,8 @@
     --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     --max-width: 1170px;
+
+    --clr-button-1: #363537;
 }
 
 h1 {
@@ -83,6 +81,7 @@ h2 {
 .card-title {
     margin-top: 1.5rem;
     text-transform: uppercase;
+    font-weight: bolder;
 }
 
 .card.is-flipped {
@@ -94,7 +93,7 @@ h2 {
     width: 100%;
     height: 100%;
     line-height: 260px;
-    color: white;
+    color: var(--clr-jet-5);
     text-align: center;
     font-weight: bold;
     font-size: 40px;
@@ -103,16 +102,16 @@ h2 {
 }
 
 .card__face--front {
-    background: var(--clr-primary-7);
+    background: var(--clr-primary-2);
 }
 
 .card__face--back {
-    background: var(--clr-primary-5);
+    background: var(--clr-primary-1);
     transform: rotateY(180deg);
 }
 
 .card__face--learned {
-    background: var(--clr-primary-4);
+    background: var(--clr-primary-2);
 }
 
 .checkmark-container {
@@ -147,6 +146,11 @@ h2 {
     border-style: solid;
     transform-origin: bottom left;
     transform: rotate(45deg)
+}
+
+.btn-learned {
+    background-color: var(--clr-button-1);
+    border: none;
 }
 
 @media (min-width: 30rem) and (max-width: 48rem) {
