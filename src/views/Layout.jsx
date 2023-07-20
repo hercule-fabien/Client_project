@@ -9,14 +9,16 @@ module.exports = function Layout({ children, login }) {
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        {/* <link rel="stylesheet" href="/stylesheets/application.css" /> */}
-
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossOrigin="anonymous" />
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
+        <link rel="stylesheet" href="/css/style.css" />
         {/* <script defer src="/js/application.js" /> */}
 
-        <title>TITLE</title>
+        <title>АНГЛИЙСКИЙ-ЛЕГКО</title>
       </head>
 
       <body>
@@ -24,12 +26,16 @@ module.exports = function Layout({ children, login }) {
           <div className="max-w-700 center wrap-float">
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
               <div className="container-fluid">
-                {login? ( <a className="navbar-brand" href="/home">
-                  <img src='/img/image.png' alt='#' style={{width:'100px', height:'100px'}}/>
-                </a>) : 
-                <a className="navbar-brand" href="/">
-                  <img src='/img/image.png' alt='#' style={{width:'100px', height:'100px'}}/>
-                </a> }
+                {login ? (
+                  <a className="navbar-brand" href="/home">
+                    <img src="/img/image.png" alt="#" style={{ width: '100px', height: '100px' }} />
+                  </a>
+                )
+                  : (
+                    <a className="navbar-brand" href="/">
+                      <img src="/img/image.png" alt="#" style={{ width: '100px', height: '100px' }} />
+                    </a>
+                  ) }
                 <button
                   className="navbar-toggler"
                   type="button"
@@ -77,7 +83,7 @@ module.exports = function Layout({ children, login }) {
 
             <div className="logo-container" style={{ marginTop: '20px' }}>
               {/* <img className="logo center block" src="/images/logo.png" alt="logo" /> */}
-              <h1 className="projName">PROJECT NAME</h1>
+              {/* <h1 className="projName">PROJECT NAME</h1> */}
             </div>
           </div>
         </header>

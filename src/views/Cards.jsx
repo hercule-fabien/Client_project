@@ -7,10 +7,17 @@ module.exports = function Cards({ login, category, cards }) {
     <Layout login={login}>
       <link rel="stylesheet" href="/css/cards.css" />
       <script defer src="/js/cards.js" />
-      <h1>
+      <nav aria-label="breadcrumb">
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item"><a href="/">Домой</a></li>
+          <li className="breadcrumb-item"><a href="/home">Темы</a></li>
+          <li className="breadcrumb-item active" aria-current="page">Карты</li>
+        </ol>
+      </nav>
+      {/* <h1>
         Practice,
         {category.name}
-      </h1>
+      </h1> */}
       <div className="container section-center blog-center">
         {cards.map((card) => (
           <div className="card-body scene scene--card" key={card.id}>
