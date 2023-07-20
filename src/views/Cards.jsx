@@ -55,7 +55,7 @@ module.exports = function Cards({ login, category, cards }) {
                 {login === 'admin' ? (
                   <button type="button" className="btn btn-learned btn-success btn-delete" id={card.id} data-cardid={card.id}>Удалить</button>
                 ) : (
-                  <button type="button" className="btn btn-learned btn-success " data-cardid={card.id}>Сменить статус</button>
+                  <button type="button" className="btn btn-learned btn-success " data-cardid={card.id}>Изучено</button>
                 )}
               </div>
             </div>
