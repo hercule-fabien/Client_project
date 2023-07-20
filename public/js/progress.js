@@ -20,24 +20,31 @@ const bodyDiv = document.querySelector('#body');
       progressContainer.className = 'container';
 
       const circle = document.createElement('div');
-      circle.className = 'progress-circle';
+      circle.className = 'progress-circle col-4';
 
-      circle.style.transform = `rotate(${el.progressPercent * 3.6}deg)`;
+      // circle.style.transform = `rotate(${el.progressPercent * 3.6}deg)`;
+
+      const progressLine = document.createElement('div');
+      progressLine.className = 'progress col-9';
+      progressLine.style.width = '30%';
+      progressLine.innerHTML = `<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style="width: ${el.progressPercent}%" aria-valuenow="${el.progressPercent}" aria-valuemin="0" aria-valuemax="100"></div>`;
+
 
       const countDiv = document.createElement('div');
       countDiv.innerHTML = `${el.progressPercent}%`;
-      countDiv.className = 'progress-count';
+      countDiv.className = 'progress-count col-6';
 
-      const randomCheers = ['Hooray for you! Keep up the great work!', 'Practice makes perfect! Keep going!', 'You\'re doing great! Keep up the good work!', 'Cheers to learning!'];
+      const randomCheers = ['Ура! Продолжай в том же духе!', 'Вперед, к новым вершинам!', 'Так держать! Ты умница!', 'Прекрасно! Твои успехи впечатляют!'];
       const randomIndex = Math.floor(Math.random() * 3);
 
       const text = document.createElement('h5');
       text.className = 'cheers';
 
-      text.innerText = `YOU HAVE LEARNED ${el.islearned} OUT OF ${el.total} WORDS IN CATEGORY ${el.categoryName.toUpperCase()}! \n ${randomCheers[randomIndex]} `;
+      text.innerText = `Ты выучил ${el.islearned} из ${el.total} слов в категории ${el.categoryName.toUpperCase()}! \n ${randomCheers[randomIndex]} `;
 
       circle.appendChild(countDiv);
       progressContainer.appendChild(circle);
+      bodyDiv.appendChild(progressLine);
       progressContainer.appendChild(text);
       bodyDiv.appendChild(progressContainer);
 

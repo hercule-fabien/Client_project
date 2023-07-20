@@ -1,14 +1,11 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
-const bcrypt = require('bcrypt');
+
 const renderTemplate = require('../lib/renderTemplate');
 const { checkUser } = require('../middlewares/common');
 const Welcome = require('../views/Welcome');
 const Cards = require('../views/Cards');
-const {
-  Category, Card, User, Progress,
-} = require('../../db/models');
-const Home = require('../views/Home');
+
 const {
   Category, Card, User, Progress,
 } = require('../../db/models');
