@@ -37,6 +37,18 @@
     --max-width: 1170px;
 }
 
+h1 {
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+.cards-title {
+    text-align: center;
+}
+
 .cards-title span {
     text-transform: uppercase;
 }
@@ -98,6 +110,7 @@
     background: var(--clr-primary-5);
     transform: rotateY(180deg);
 }
+
 .card__face--learned {
     background: var(--clr-primary-4);
 }
@@ -113,12 +126,13 @@
     box-sizing: border-box;
     position: relative;
     display: block;
-    transform: scale(var(--ggs,3));
+    transform: scale(var(--ggs, 3));
     width: 22px;
     height: 22px;
     border: 2px solid green;
     border-radius: 100px
 }
+
 .gg-check-o::after {
     content: "";
     display: block;
@@ -156,12 +170,14 @@
     .cards-container {
         margin-top: 80px;
         flex-direction: row;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         justify-content: center;
         gap: 20px;
     }
 
     .scene {
+        width: 350px;
+        min-width: 300px;
         max-width: 350px;
         perspective: 300px;
     }
