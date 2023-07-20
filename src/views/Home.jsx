@@ -10,16 +10,16 @@ module.exports = function Home({ login, categories }) {
           <li className="breadcrumb-item active" aria-current="page">Темы</li>
         </ol>
       </nav>
-      <h1 style={{ textAlign: 'center', margin: '30px' }}>Choose a category!</h1>
+      <h1 style={{ textAlign: 'center', margin: '30px' }}>Выберите категорию!</h1>
       <div style={{
         display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center',
       }}
       >
         {categories.map((category) => (
           <div className="card w-40" style={{ width: '355px', height: '15rem' }}>
-            <div className="card-body" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div className="card-body" id={`category_${category.id}`} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <h1 className="card-title">{category.name.toUpperCase()}</h1>
-              <a href={`/categories/${category.id}`} className="btn btn-outline-warning oneCategory">
+              <a href={`/categories/${category.id}`} className="btn btn-warning oneCategory">
                 Изучать
               </a>
             </div>
