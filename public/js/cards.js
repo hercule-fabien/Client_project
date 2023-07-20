@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const statusElements = document.querySelectorAll('.status');
   const cards = document.querySelectorAll('.card');
   const btnLearnedElements = document.querySelectorAll('.btn-learned');
 
@@ -11,21 +10,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   btnLearnedElements.forEach((button) => {
     button.addEventListener('click', async () => {
-      const statusElem = button.parentNode.parentNode.querySelector('.status');
+      const checkMarkElem = button.parentNode.parentNode.querySelector('.checkmark-container');
       const id = Number(button.dataset.cardid);
       const result = await fetch(`/categories/cards/${id}`, {
         method: 'PATCH',
       });
       const data = await result.json();
-      console.log('Data ==> ', data);
       if (data.isLearned) {
         const cardFaces = button.closest('.card').querySelectorAll('.card__face');
         cardFaces.forEach((face) => face.classList.add('card__face--learned'));
-        statusElem.innerText = 'Learned';
+        checkMarkElem.innerHTML = '<i class = "gg-check-o" />';
       } else {
         const cardFaces = button.closest('.card').querySelectorAll('.card__face');
         cardFaces.forEach((face) => face.classList.remove('card__face--learned'));
-        statusElem.innerText = 'Not Learned';
+        checkMarkElem.innerHTML = '';
       }
     });
   });
