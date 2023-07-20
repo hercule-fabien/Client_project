@@ -32,10 +32,10 @@ router.put('/newPassword', async (req, res) => {
   const { email } = req.session;
   // console.log(req.session)
   const user = await User.findOne({ where: { email } });
-  console.log(user, '<=====USER');
-  // const currentHash = await bcrypt.hash(currentPassword, 10);
-  // console.log()
-  console.log(newPassword, newPasswordValid, user.password, 'TUT BIG CONSOLE LOG');
+  console.log(user, '<=====USER')
+  //const currentHash = await bcrypt.hash(currentPassword, 10);
+  //console.log()
+  console.log(newPassword,newPasswordValid, user.password, "TUT BIG CONSOLE LOG")
   const checkPassword = await bcrypt.compare(currentPassword, user.password);
   if (newPassword === newPasswordValid && checkPassword) {
     console.log('PROVERKA ZAHODA V IF');
@@ -44,11 +44,11 @@ router.put('/newPassword', async (req, res) => {
       { password: hash },
       { where: { email } },
     );
-    console.log(newPersonalInfo, '<==========');
-    // alert('Пароль успешно изменен!')
+    console.log(newPersonalInfo, '<==========')
+    //alert('Пароль успешно изменен!')
     res.json(newPersonalInfo);
   } else {
-    // alert('Что-то пошло не так, попробуйте еще раз')
+    //alert('Что-то пошло не так, попробуйте еще раз')
     res.sendStatus(403);
   }
 });
@@ -71,17 +71,17 @@ router.post('/newCard', async (req, res) => {
   res.json(newCard);
 });
 
-router.get('/logout', checkUser, (req, res) => {
+router.get("/logout", checkUser, (req, res) => {
   req.session.destroy(() => {
-    res.clearCookie('MemorizeCookie');
-    res.redirect('/');
+    res.clearCookie("MemorizeCookie");
+    res.redirect("/");
   });
 });
 
-router.post('/lostpass', async (req, res) => {
+router.post("/lostpass", async (req, res) => {
   function randomPass() {
-    let result = '';
-    const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    let result = "";
+    const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
     let counter = 0;
     while (counter < 8) {
       result += characters.charAt(
@@ -132,15 +132,7 @@ router.get('/categories/:categoryId', async (req, res) => {
   }
 });
 
-router.delete('/cards/:id', async (req, res) => {
-  const { id } = req.params;
-  const card = await Card.findOne({ where: { id } });
-  await Progress.destroy({ where: { cardId: card.id } });
-  await Card.destroy({ where: { id } });
-  res.send('card deleted');
-});
-
-router.patch('/categories/cards/:id', async (req, res) => {
+router.patch("/categories/cards/:id", async (req, res) => {
   const { email } = req.session;
   const cardId = req.params.id;
   try {
