@@ -1,6 +1,6 @@
 .progress-circle {
   background: radial-gradient(white 50%, transparent 51%),
-    conic-gradient(transparent 0deg 220deg, gainsboro 220deg 360deg),
+    conic-gradient(transparent 0deg 360deg, gainsboro 220deg 360deg),
     conic-gradient(#ee8498 0deg, #f7cf79 90deg, #acecf7 180deg, #586a6a);
   border-radius: 50%;
   width: 120px;

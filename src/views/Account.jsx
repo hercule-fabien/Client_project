@@ -57,12 +57,14 @@ module.exports = function Account({ login }) {
                     <form className="newCard">
                       <div className="form-group">
                         <select name="categoryName">
-                          <option selected>travel</option>
-                          <option>animal</option>
-                          <option>greetings</option>
-                          <option>entertainment</option>
-                          <option>common phrases</option>
-                          <option>home</option>
+                          <option selected>путешествия</option>
+                          <option>животные</option>
+                          <option>приветствия</option>
+                          <option>развлечения</option>
+                          <option>общие фразы</option>
+                          <option>дом</option>
+                          <option>еда</option>
+                          <option>природа</option>
                         </select>
                       </div>
                       <div className="form-group">
