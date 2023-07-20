@@ -95,9 +95,9 @@ module.exports = function Account({ login }) {
       </div>
 
       <div className="changeProfile">
-          <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          <a href='/editProfile'><button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             Редактировать профиль
-          </button>
+          </button></a>
           <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
               <div className="modal-content">
