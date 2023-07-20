@@ -27,9 +27,12 @@ module.exports = function Layout({ children, login }) {
           <div className="max-w-700 center wrap-float">
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
               <div className="container-fluid">
+                {login? ( <a className="navbar-brand" href="/home">
+                  <img src='/img/image.png' alt='#' style={{width:'100px', height:'100px'}}/>
+                </a>) : 
                 <a className="navbar-brand" href="/">
-                  <img src="/img/image.png" alt="#" style={{ width: '100px', height: '100px' }} />
-                </a>
+                  <img src='/img/image.png' alt='#' style={{width:'100px', height:'100px'}}/>
+                </a> }
                 <button
                   className="navbar-toggler"
                   type="button"
