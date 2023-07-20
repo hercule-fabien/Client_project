@@ -30,11 +30,9 @@ router.post('/', async (req, res) => {
       ],
       raw: true,
     });
-    console.log(results, '==== results');
 
     const categoryIds = [...new Set(results.map((result) => result['Card.Category.id']))];
     const categoryName = [...new Set(results.map((result) => result['Card.Category.name']))];
-    // console.log(categoryName);
 
     const categoryData = categoryIds.map((categoryId) => {
       const categoryResults = results.filter((result) => result['Card.Category.id'] === categoryId);

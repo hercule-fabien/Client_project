@@ -4,6 +4,7 @@ const Layout = require('./Layout');
 module.exports = function Account({ login }) {
   return (
     <Layout login={login}>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/1.1.0/progressbar.min.js" />
       <link rel="stylesheet" href="css/progress.css" />
       <script defer src="/js/progress.js" />
       <script defer src="/js/addCard.js" />

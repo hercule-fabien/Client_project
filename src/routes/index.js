@@ -28,27 +28,17 @@ router.get('/editProfile', (req, res) => {
 
 router.put('/newPassword', async (req, res) => {
   const { currentPassword, newPassword, newPasswordValid } = req.body;
-  //console.log(req.body, 'SMOTRI REQ BODY');
   const { email } = req.session;
-  // console.log(req.session)
   const user = await User.findOne({ where: { email } });
-  console.log(user, '<=====USER')
-  //const currentHash = await bcrypt.hash(currentPassword, 10);
-  //console.log()
-  console.log(newPassword,newPasswordValid, user.password, "TUT BIG CONSOLE LOG")
   const checkPassword = await bcrypt.compare(currentPassword, user.password);
   if (newPassword === newPasswordValid && checkPassword) {
-    console.log('PROVERKA ZAHODA V IF');
     const hash = await bcrypt.hash(newPassword, 10);
     const newPersonalInfo = await User.update(
       { password: hash },
       { where: { email } },
     );
-    console.log(newPersonalInfo, '<==========')
-    //alert('Пароль успешно изменен!')
     res.json(newPersonalInfo);
   } else {
-    //alert('Что-то пошло не так, попробуйте еще раз')
     res.sendStatus(403);
   }
 });
@@ -92,7 +82,7 @@ router.post("/lostpass", async (req, res) => {
     return result;
   }
   const { email } = req.body;
-  // console.log(req.body)
+
   try {
     const mailCheck = await User.findOne({ where: { email } });
     if (!mailCheck) {
@@ -101,7 +91,6 @@ router.post("/lostpass", async (req, res) => {
       const newPass = randomPass();
       const hashPass = await bcrypt.hash(newPass, 10);
       await User.update({ password: hashPass }, { where: { email } });
-      console.log(res);
       res.json({ status: 200, data: newPass, name: mailCheck.name });
     }
   } catch (error) {
