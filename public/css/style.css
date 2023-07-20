@@ -1,32 +1,242 @@
 body {
+<<<<<<< HEAD
     font-family: 'Montserrat', sans-serif;
     color: var(--clr-jet-5);
     padding:20px;
+=======
+  font-family: "Montserrat", sans-serif;
+  color: var(--clr-jet-5);
+}
+
+h1 {
+  font-size: 1.8rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+>>>>>>> main
 }
 
 .navbar-nav {
-    width: 100%;
+  width: 100%;
 }
 
 .nav-link a {
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #9d9d9d;
-    font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #9d9d9d;
+  font-weight: bold;
 }
 
 #logout {
-    max-width: 100px;
-    text-transform: uppercase;
+  max-width: 100px;
+  text-transform: uppercase;
 }
 
 #logout:hover,
 #logout:active {
-    color: white;
+  color: white;
 }
 
 .main {
+<<<<<<< HEAD
     width: 100%;
     margin: 0 auto;
     padding-bottom: 40px;
+=======
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 40px;
+>>>>>>> main
 }
+
+#category_1 {
+    position: relative;
+    overflow: hidden;
+    background-image: url("/img/travel.jpg");
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(30px);
+  }
+  
+  #category_1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    opacity: 0.4;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+  }
+
+#category_2 {
+  position: relative;
+  overflow: hidden;
+  background-image: url("/img/raccoon5.jpg");
+  border-radius: 5px;
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(30px);
+}
+
+#category_2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  opacity: 0.4;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+#category_3 {
+    position: relative;
+    overflow: hidden;
+    background-image: url("/img/greet.jpg");
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(30px);
+  }
+  
+  #category_3::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    opacity: 0.4;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+  }
+
+#category_4 {
+    position: relative;
+    overflow: hidden;
+    background-image: url("/img/entertainment.jpg");
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(30px);
+  }
+  
+  #category_4::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    opacity: 0.4;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+  }
+
+  #category_5 {
+    position: relative;
+    overflow: hidden;
+    background-image: url("/img/phrases.png");
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(30px);
+  }
+  
+  #category_5::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    opacity: 0.4;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+  }
+
+  #category_6 {
+    position: relative;
+    overflow: hidden;
+    background-image: url("/img/home.jpg");
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(30px);
+  }
+  
+  #category_6::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    opacity: 0.4;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+  }
+
+  #category_7 {
+    position: relative;
+    overflow: hidden;
+    background-image: url("/img/food.jpeg");
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(30px);
+  }
+  
+  #category_7::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    opacity: 0.4;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+  }
+
+  #category_8 {
+    position: relative;
+    overflow: hidden;
+    background-image: url("/img/nature.jpg");
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(30px);
+  }
+  
+  #category_8::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    opacity: 0.4;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+  }

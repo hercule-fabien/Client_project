@@ -14,7 +14,7 @@ module.exports = function Cards({ login, category, cards }) {
         {' '}
         <span>{category.name}</span>
       </h1>
-      <div className="cards-container section-center blog-center">
+      <div className="cards-container section-center blog-center deleteDiv">
         {cards.map((card) => (
           <div className="card-body scene scene--card" key={card.id}>
             <div className="card">
