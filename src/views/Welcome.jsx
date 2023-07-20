@@ -17,12 +17,9 @@ module.exports = function Welcome({ login }) {
             />
           </div>
           <div className="col-lg-6">
-            <h1 className="display-5 fw-bold lh-1 mb-3">Let's learn</h1>
+            <h1 className="display-5 fw-bold lh-1 mb-3">Давайте учиться вместе</h1>
             <p className="lead">
-              Quickly design and customize responsive mobile-first sites with
-              Bootstrap, the world’s most popular front-end open source toolkit,
-              featuring Sass variables and mixins, responsive grid system,
-              extensive prebuilt components, and powerful JavaScript plugins.
+            Добро пожаловать на сайт для изучения английского языка! Здесь вы сможете легко освоить новые слова и фразы. Мы предлагаем интересные карточки с английскими словами и их переводами, чтобы вы могли учиться эффективно и с удовольствием. Присоединяйтесь и начните улучшать свои знания английского языка прямо сейчас! Удачи в изучении!
             </p>
             {!login ? (
               <div className="d-grid gap-2 d-md-flex justify-content-md-start">
