@@ -55,6 +55,7 @@ module.exports = function Layout({ children, login }) {
                           <a href="/account">{login}</a>
                         </span>
                       </li>
+
                       <li className="nav-item">
                         <a className="nav-link btn btn-outline-secondary" id="logout" href="/logout">
                           Logout
