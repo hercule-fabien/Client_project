@@ -3,7 +3,6 @@ const React = require('react');
 const Layout = require('./Layout');
 
 module.exports = function Cards({ login, category, cards }) {
-  // console.log('CARDS ===> ', cards[0].Progresses[0].dataValues);
   return (
     <Layout login={login}>
       <link href="https://unpkg.com/css.gg@2.0.0/icons/css/check-o.css" rel="stylesheet" />
@@ -17,11 +16,12 @@ module.exports = function Cards({ login, category, cards }) {
           <li className="breadcrumb-item active" aria-current="page">Карты</li>
         </ol>
       </nav>
-      {/* <h1>
-        Practice,
-        {category.name}
-      </h1> */}
-      <div className="container section-center blog-center deleteDiv">
+      <h1 className="cards-title">
+        Вы изучаете -
+        {' '}
+        <span>{category.name}</span>
+      </h1>
+      <div className="cards-container section-center blog-center">
         {cards.map((card) => (
           <div className="card-body scene scene--card" key={card.id}>
             <div className="card">
