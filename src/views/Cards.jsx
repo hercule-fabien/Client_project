@@ -21,7 +21,7 @@ module.exports = function Cards({ login, category, cards }) {
         {' '}
         <span>{category.name}</span>
       </h1>
-      <div className="cards-container section-center blog-center">
+      <div className="cards-container section-center blog-center deleteDiv">
         {cards.map((card) => (
           <div className="card-body scene scene--card" key={card.id}>
             <div className="card">
@@ -55,7 +55,7 @@ module.exports = function Cards({ login, category, cards }) {
                 {login === 'admin' ? (
                   <button type="button" className="btn btn-learned btn-success btn-delete" id={card.id} data-cardid={card.id}>Удалить</button>
                 ) : (
-                  <button type="button" className="btn btn-learned btn-success " data-cardid={card.id}>Сменить статус</button>
+                  <button type="button" className="btn btn-learned btn-success " data-cardid={card.id}>Изучено</button>
                 )}
               </div>
             </div>
