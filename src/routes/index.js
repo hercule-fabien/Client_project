@@ -28,7 +28,7 @@ router.get('/editProfile', (req, res) => {
 
 router.put('/newPassword', async (req, res) => {
   const { currentPassword, newPassword, newPasswordValid } = req.body;
-  console.log(req.body, 'SMOTRI REQ BODY');
+  //console.log(req.body, 'SMOTRI REQ BODY');
   const { email } = req.session;
   // console.log(req.session)
   const user = await User.findOne({ where: { email } });
@@ -132,7 +132,7 @@ router.get('/categories/:categoryId', async (req, res) => {
   }
 });
 
-router.patch("/categories/cards/:id", async (req, res) => {
+router.patch('/categories/cards/:id', async (req, res) => {
   const { email } = req.session;
   const cardId = req.params.id;
   try {
