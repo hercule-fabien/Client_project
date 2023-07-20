@@ -28,7 +28,7 @@ router.get('/editProfile', (req, res) => {
 
 router.put('/newPassword', async (req, res) => {
   const { currentPassword, newPassword, newPasswordValid } = req.body;
-  console.log(req.body, 'SMOTRI REQ BODY');
+  //console.log(req.body, 'SMOTRI REQ BODY');
   const { email } = req.session;
   // console.log(req.session)
   const user = await User.findOne({ where: { email } });
@@ -135,7 +135,10 @@ router.get('/categories/:categoryId', async (req, res) => {
 router.delete('/cards/:id', async (req, res) => {
   const { id } = req.params;
   const card = await Card.findOne({ where: { id } });
-  await Progress.destroy({ where: { cardId: card.id } });
+  const progress = await Progress.findOne({where: {cardId: card.id}})
+  if(progress) {
+    await Progress.destroy({ where: { cardId: card.id } });
+  }
   await Card.destroy({ where: { id } });
   res.send('card deleted');
 });
