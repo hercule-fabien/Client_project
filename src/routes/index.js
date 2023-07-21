@@ -52,6 +52,7 @@ router.post('/newCard', async (req, res) => {
     categoryId: category.id,
     question,
     answer,
+    owner: user.id,
   });
   await Progress.create({
     isLearned: false,
@@ -115,8 +116,15 @@ router.get('/categories/:categoryId', async (req, res) => {
         },
       ],
     });
-    const nonLearnedCards = cards.filter((card) => card.Progresses.length === 0 || !card.Progresses[0].isLearned);
-    console.log('Not Learned CARDS ====>', nonLearnedCards);
+    // const nonLearnedCards = cards.filter((card) => card.Progresses.length === 0 || !card.Progresses[0].isLearned);
+    const nonLearnedCards = cards.filter((card) => {
+      if (card.Progresses.length === 0 || !card.Progresses[0].isLearned) {
+        if (card.owner === null || card.owner === user.id) {
+          return true;
+        }
+      }
+      return false;
+    });
     renderTemplate(Cards, {
       login, category, cards, nonLearnedCards,
     }, res);
@@ -149,5 +157,29 @@ router.patch('/categories/cards/:id', async (req, res) => {
     console.error(error);
   }
 });
+
+router.get('/reset/:id', async (req, res) => {
+  const categoryId = req.params.id;
+  const { email } = req.session;
+  try {
+    const user = await User.findOne({ where: { email } });
+
+    const progresses = await Progress.findAll({
+      where: { userId: user.id },
+      include: [{
+        model: Card,
+        where: { categoryId },
+      }],
+    });
+
+    await Promise.all(progresses.map((progress) => progress.update({ isLearned: false })));
+
+    res.json({ message: 'success' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'An error occurred while resetting the cards.' });
+  }
+});
+
 
 module.exports = router;

@@ -30,7 +30,7 @@ const bodyDiv = document.querySelector('#body');
       countDiv.innerHTML = `${el.progressPercent}%`;
       countDiv.className = 'progress-count col-6';
 
-      const randomCheers = ['Ура! Продолжай в том же духе!', 'Вперед, к новым вершинам!', 'Так держать! Ты умница!', 'Прекрасно! Твои успехи впечатляют!'];
+      const randomCheers = ['Ура! Продолжай в том же духе!', 'Вперед, к новым вершинам!', 'Так держать! Ты мегамозг!', 'Прекрасно! Твои успехи впечатляют!'];
       const randomIndex = Math.floor(Math.random() * 3);
 
       const text = document.createElement('h5');
@@ -40,9 +40,9 @@ const bodyDiv = document.querySelector('#body');
 
       circle.appendChild(countDiv);
       progressContainer.appendChild(circle);
+      bodyDiv.appendChild(progressContainer);
       bodyDiv.appendChild(progressLine);
       progressContainer.appendChild(text);
-      bodyDiv.appendChild(progressContainer);
 
       return bodyDiv;
     });

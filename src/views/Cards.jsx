@@ -6,10 +6,11 @@ module.exports = function Cards({
 }) {
   return (
     <Layout login={login}>
-      <link href="https://unpkg.com/css.gg@2.0.0/icons/css/check-o.css" rel="stylesheet" />
+      <link href="https://unpkg.com/css.gg@2.0.0/icons/css/check-o.css" rel="stylesheet" crossOrigin="anonymous" />
       <link rel="stylesheet" href="/css/cards.css" />
       <script defer src="/js/cards.js" />
       <script defer src="/js/deleteCard.js" />
+      <script defer src="/js/reset.js" />
       <h1 className="cards-title">
         Вы изучаете -
         {' '}
@@ -19,7 +20,7 @@ module.exports = function Cards({
         {nonLearnedCards.length === 0 ? (
           <>
             <h3>Все карточки изучены</h3>
-            <button type="button">Изучать снова</button>
+            <button className="resetBtn btn btn-outline-secondary" type="button" id={category.id}>Изучать снова</button>
           </>
         ) : (
           nonLearnedCards.map((card) => (

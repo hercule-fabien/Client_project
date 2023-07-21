@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cardsContainer.childElementCount === 0) {
           cardsContainer.innerHTML = `<h3>Все карточки изучены</h3>
             <button type="button" class="btn btn-outline-secondary">Изучать снова</button>`;
+          window.location.reload();
         }
       }
     }

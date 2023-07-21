@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     question: DataTypes.STRING,
     answer: DataTypes.STRING,
     categoryId: DataTypes.INTEGER,
+    owner: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Card',
