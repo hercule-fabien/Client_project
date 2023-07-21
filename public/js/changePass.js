@@ -18,5 +18,6 @@ passwordUpd.addEventListener('submit', async (event) => {
     });
     const result = await response.json();
     console.log(result);
+    window.location.href = '/home'
   }
 });
