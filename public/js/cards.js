@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       const data = await result.json();
       if (data.isLearned) {
+        console.log('ремувим', e.target.parentNode.parentNode.parentNode);
         e.target.parentNode.parentNode.parentNode.remove();
         if (cardsContainer.childElementCount === 0) {
           cardsContainer.innerHTML = `<h3>Все карточки изучены</h3>
