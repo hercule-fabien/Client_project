@@ -21,7 +21,7 @@ module.exports = function Login() {
           <script src="https://smtpjs.com/v3/smtp.js" />
           <form id="loginForm" style={{ marginTop: "30px" }}>
             <label htmlFor="exampleInput3" className="form-label">
-              Email
+              Электронная почта
             </label>
             <input
               name="email"
@@ -32,7 +32,7 @@ module.exports = function Login() {
             />
 
             <label htmlFor="exampleInput2" className="form-label">
-              Password
+              Пароль
             </label>
             <input
               name="password"
@@ -50,7 +50,7 @@ module.exports = function Login() {
             className="btn btn-outline-dark mt-3"
             id="lostPass"
           >
-            I forgot my password
+           Забыл пароль
           </button>
           <hr />
           <h3 className="logMsg" />

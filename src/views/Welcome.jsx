@@ -24,10 +24,10 @@ module.exports = function Welcome({ login }) {
             {!login ? (
               <div className="d-grid gap-2 d-md-flex justify-content-md-start">
                 <a href="/login">
-                  <button type="button" className="btn btn-warning btn-lg px-4 me-md-2">Login</button>
+                  <button type="button" className="btn btn-warning btn-lg px-4 me-md-2">Войти</button>
                 </a>
                 <a href="/register">
-                  <button type="button" className="btn btn-outline-secondary btn-lg px-4">Register</button>
+                  <button type="button" className="btn btn-outline-secondary btn-lg px-4">Регистрация</button>
                 </a>
               </div>
             ) : (
