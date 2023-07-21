@@ -32,7 +32,7 @@ function Register() {
             />
 
             <label htmlFor="exampleInput3" className="form-label">
-              Email
+             Электронная почта
             </label>
             <input
               name="email"
@@ -43,7 +43,7 @@ function Register() {
             />
 
             <label htmlFor="exampleInput2" className="form-label">
-              Password
+              Пароль
             </label>
             <input
               name="password"

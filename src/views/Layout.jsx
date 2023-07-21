@@ -57,8 +57,14 @@ module.exports = function Layout({ children, login }) {
                       </li>
 
                       <li className="nav-item">
+                        <span className="nav-link">
+                          <a href="/account">Личный кабинет</a>
+                        </span>
+                      </li>
+
+                      <li className="nav-item">
                         <a className="nav-link btn btn-outline-secondary" id="logout" href="/logout">
-                          Logout
+                          Выйти
                         </a>
                       </li>
                     </ul>
@@ -66,12 +72,12 @@ module.exports = function Layout({ children, login }) {
                     <ul className="navbar-nav">
                       <li className="nav-item">
                         <a className="nav-link" href="/login">
-                          Login
+                          Войти
                         </a>
                       </li>
                       <li className="nav-item">
                         <a className="nav-link" href="/register">
-                          Registration
+                          Регистрация
                         </a>
                       </li>
                     </ul>
