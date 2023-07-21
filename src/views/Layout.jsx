@@ -50,7 +50,7 @@ module.exports = function Layout({ children, login }) {
                     <ul className="navbar-nav d-flex justify-content-between">
                       <li className="nav-item">
                         <span className="nav-link">
-                          Hi,
+                        Привет,
                           {' '}
                           <a href="/account">{login}</a>
                         </span>

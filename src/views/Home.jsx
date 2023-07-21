@@ -4,7 +4,7 @@ const Layout = require('./Layout');
 module.exports = function Home({ login, categories }) {
   return (
     <Layout login={login}>
-      <h1 style={{ textAlign: 'center', margin: '30px' }}>Choose a category!</h1>
+      <h1 style={{ textAlign: 'center', margin: '30px' }}>Выбери категорию!</h1>
       <div style={{
         display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center',
       }}
