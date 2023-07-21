@@ -58,7 +58,7 @@ module.exports = function Account({ login }) {
                     </h5>
                     <button
                       type="button"
-                      className="close"
+                      className="close btn btn-warning"
                       data-dismiss="modal"
                       aria-label="Close"
                     >
@@ -68,7 +68,7 @@ module.exports = function Account({ login }) {
                   <div className="modal-body">
                     <form className="newCard">
                       <div className="form-group">
-                        <select name="categoryName">
+                        <select className="custom-select">
                           <option selected>путешествия</option>
                           <option>животные</option>
                           <option>приветствия</option>
@@ -98,7 +98,7 @@ module.exports = function Account({ login }) {
                         />
                       </div>
                       <div className="modal-footer">
-                        <button type="submit" className="btn btn-primary">
+                        <button type="submit" className="btn  btn-outline-warning">
                           Добавить
                         </button>
                       </div>
