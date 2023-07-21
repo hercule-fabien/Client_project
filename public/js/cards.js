@@ -2,29 +2,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const cards = document.querySelectorAll('.card');
   const btnLearnedElements = document.querySelectorAll('.btn-learned');
 
+  const cardDiv = document.querySelector('.deleteDiv');
+
   [...cards].forEach((card) => {
     card.addEventListener('click', () => {
       card.classList.toggle('is-flipped');
     });
   });
 
-  btnLearnedElements.forEach((button) => {
-    button.addEventListener('click', async () => {
-      const checkMarkElem = button.parentNode.parentNode.querySelector('.checkmark-container');
-      const id = Number(button.dataset.cardid);
+  cardDiv.addEventListener('click', async (e) => {
+    if (e.target.classList.contains('btn-learned')) {
+      const cardsContainer = document.querySelector('.cards-container');
+      const { id } = e.target;
+      // const buttonDel = document.getElementById(`${id}`);
+      // const checkMarkElem = button.parentNode.parentNode.querySelector('.checkmark-container');
       const result = await fetch(`/categories/cards/${id}`, {
         method: 'PATCH',
       });
       const data = await result.json();
       if (data.isLearned) {
-        const cardFaces = button.closest('.card').querySelectorAll('.card__face');
-        // cardFaces.forEach((face) => face.classList.add('card__face--learned'));
-        checkMarkElem.innerHTML = '<i class = "gg-check-o" />';
-      } else {
-        const cardFaces = button.closest('.card').querySelectorAll('.card__face');
-        cardFaces.forEach((face) => face.classList.remove('card__face--learned'));
-        checkMarkElem.innerHTML = '';
+        e.target.parentNode.parentNode.parentNode.remove();
+        if (cardsContainer.childElementCount === 0) {
+          cardsContainer.innerHTML = `<h3>Все карточки изучены</h3>
+            <button type="button" class="btn btn-outline-secondary">Изучать снова</button>`;
+        }
       }
-    });
+    }
   });
 });
