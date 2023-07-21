@@ -47,15 +47,17 @@ module.exports = function Layout({ children, login }) {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                   {login ? (
-                    <ul className="navbar-nav d-flex justify-content-between">
+                    <>
+                    <ul className="navbar-nav d-flex justify-content-between LK">
                       <li className="nav-item">
                         <span className="nav-link">
-                        Привет,
+                          Привет,
                           {' '}
                           <a href="/account">{login}</a>
                         </span>
                       </li>
-
+                    </ul>
+                    <ul className="d-flex justify-content-between">
                       <li className="nav-item">
                         <span className="nav-link">
                           <a href="/account">Личный кабинет</a>
@@ -68,6 +70,7 @@ module.exports = function Layout({ children, login }) {
                         </a>
                       </li>
                     </ul>
+                  </>
                   ) : (
                     <ul className="navbar-nav">
                       <li className="nav-item">
