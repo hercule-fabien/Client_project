@@ -4,7 +4,6 @@ const Layout = require('./Layout');
 module.exports = function Cards({
   login, category, cards, nonLearnedCards,
 }) {
-  console.log('CARDS ====> ', cards);
   return (
     <Layout login={login}>
       <link href="https://unpkg.com/css.gg@2.0.0/icons/css/check-o.css" rel="stylesheet" />
@@ -23,7 +22,7 @@ module.exports = function Cards({
             <button type="button">Изучать снова</button>
           </>
         ) : (
-          cards.map((card) => (
+          nonLearnedCards.map((card) => (
             <div className="card-body scene scene--card" key={card.id}>
               <div className="card">
                 {card.Progresses.length > 0 ? (
