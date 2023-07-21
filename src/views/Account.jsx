@@ -68,7 +68,7 @@ module.exports = function Account({ login }) {
                   <div className="modal-body">
                     <form className="newCard">
                       <div className="form-group">
-                        <select className="custom-select">
+                        <select className="custom-select" name='categoryName'>
                           <option selected>путешествия</option>
                           <option>животные</option>
                           <option>приветствия</option>
