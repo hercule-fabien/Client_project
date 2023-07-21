@@ -61,17 +61,17 @@ router.post('/newCard', async (req, res) => {
   res.json(newCard);
 });
 
-router.get("/logout", checkUser, (req, res) => {
+router.get('/logout', checkUser, (req, res) => {
   req.session.destroy(() => {
-    res.clearCookie("MemorizeCookie");
-    res.redirect("/");
+    res.clearCookie('MemorizeCookie');
+    res.redirect('/');
   });
 });
 
-router.post("/lostpass", async (req, res) => {
+router.post('/lostpass', async (req, res) => {
   function randomPass() {
-    let result = "";
-    const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+    let result = '';
+    const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
     let counter = 0;
     while (counter < 8) {
       result += characters.charAt(
@@ -115,7 +115,11 @@ router.get('/categories/:categoryId', async (req, res) => {
         },
       ],
     });
-    renderTemplate(Cards, { login, category, cards }, res);
+    const nonLearnedCards = cards.filter((card) => card.Progresses.length === 0 || !card.Progresses[0].isLearned);
+    console.log('Not Learned CARDS ====>', nonLearnedCards);
+    renderTemplate(Cards, {
+      login, category, cards, nonLearnedCards,
+    }, res);
   } catch (error) {
     console.error(error);
   }
